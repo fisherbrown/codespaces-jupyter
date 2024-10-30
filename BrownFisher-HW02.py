@@ -11,7 +11,7 @@
 morse_code = {'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.','g':'--.',
               'h':'....','i':'..','j':'.---','k':'-.-','l':'.-..','m':'--','n':'-.',
               'o':'---','p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-','u':'..-',
-              'v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..',' ':'  '}
+              'v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..'}
 
 decoded_message = ''
 
@@ -20,9 +20,9 @@ message = message.lower()
 for char in message:
     for key, value in morse_code.items():
         if char.isalpha() and char == key:
-            decoded_message += morse_code[key]
-            decoded_message += ' '
+            decoded_message += morse_code[key] + ' '
+        elif char == ' ':
+            decoded_message = decoded_message.rstrip() + '  '
         else:
             continue
-
 print(decoded_message)
